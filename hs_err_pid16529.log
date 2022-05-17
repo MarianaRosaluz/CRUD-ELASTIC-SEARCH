@@ -1,0 +1,819 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fb2cf8470a6, pid=16529, tid=0x00007fb2cd684700
+#
+# JRE version: OpenJDK Runtime Environment (8.0_302-b08) (build 1.8.0_302-b08)
+# Java VM: OpenJDK 64-Bit Server VM (25.302-b08 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# V  [libjvm.so+0x9d20a6]  ParallelCompactData::calc_new_pointer(HeapWord*)+0x26
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/corretto/corretto-8/issues/
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fb2c802b000):  GCTaskThread [stack: 0x00007fb2cd585000,0x00007fb2cd685000] [id=16534]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 128 (SI_KERNEL), si_addr: 0x0000000000000000
+
+Registers:
+RAX=0x00007fb2cd55d000, RBX=0x00000000860b4920, RCX=0x00001fffffffef54, RDX=0x0000000000000020
+RSP=0x00007fb2cd683b20, RBP=0x00007fb2cd683b60, RSI=0x0000000000000020, RDI=0x00007fb2cfea36c0
+R8 =0x000000000afa74c0, R9 =0x00007fb2b52b0000, R10=0x000000000afa74b1, R11=0x00000000015f4e90
+R12=0x00057fb2cd533520, R13=0x00007fb2cfe78f50, R14=0x00007fb2cfe78f50, R15=0x00000000e40f9958
+RIP=0x00007fb2cf8470a6, EFLAGS=0x0000000000010a02, CSGSFS=0x002b000000000033, ERR=0x0000000000000000
+  TRAPNO=0x000000000000000d
+
+Top of Stack: (sp=0x00007fb2cd683b20)
+0x00007fb2cd683b20:   00000005c81022c0 00000000dd33a588
+0x00007fb2cd683b30:   00000000860b435c 00000005c81022c0
+0x00007fb2cd683b40:   0000000100006610 00000000860b4920
+0x00007fb2cd683b50:   0000000100006610 00007fb2cfe78f50
+0x00007fb2cd683b60:   00007fb2cd683b90 00007fb2cf4e50a8
+0x00007fb2cd683b70:   00007fb2cd683c80 0000000000000005
+0x00007fb2cd683b80:   0000000000000028 000000000bd5f32f
+0x00007fb2cd683b90:   00007fb2cd683bc0 00007fb2cf840bfd
+0x00007fb2cd683ba0:   00007fb2cfe9f94c 0000000000000005
+0x00007fb2cd683bb0:   0000000000000bd5 00007fb2cd683c80
+0x00007fb2cd683bc0:   00007fb2cd683c30 00007fb2cf7f38fb
+0x00007fb2cd683bd0:   0000000000000000 00000000002f5800
+0x00007fb2cd683be0:   00007fb2cfe67cc8 00007fb2cfea3700
+0x00007fb2cd683bf0:   000000000bd60000 000000000bd60000
+0x00007fb2cd683c00:   00007fb2d02e2050 00007fb2cd683c74
+0x00007fb2cd683c10:   0000000000000bd5 00000000e4100000
+0x00007fb2cd683c20:   00007fb2c81022c0 00007fb2cd683c80
+0x00007fb2cd683c30:   00007fb2cd683cf0 00007fb2cf847a31
+0x00007fb2cd683c40:   000000000000bfd8 00007fb2cd55d348
+0x00007fb2cd683c50:   000000000005fed5 00007fb2cd683c74
+0x00007fb2cd683c60:   00007fb2cd683c78 00007fb2c81022c0
+0x00007fb2cd683c70:   00000002c802c328 00000000e45fb6f0
+0x00007fb2cd683c80:   00007fb2cfddd0d0 00007fb2cfea3700
+0x00007fb2cd683c90:   00007fb2c81022c0 00000000000096df
+0x00007fb2cd683ca0:   00000000e40f9958 00007fb2c801e310
+0x00007fb2cd683cb0:   00000000860b4908 00007fb2cf783479
+0x00007fb2cd683cc0:   00007fb2cd683d20 00007fb2c80a1b70
+0x00007fb2cd683cd0:   00007fb2cfe9f94c 00007fb2cf83a1f0
+0x00007fb2cd683ce0:   00007fb2c81022c0 00007fb28428ac30
+0x00007fb2cd683cf0:   00007fb2cd683d50 00007fb2cf839405
+0x00007fb2cd683d00:   0000000000000015 00007fb2c8026e7c
+0x00007fb2cd683d10:   0000000000000001 00007fb2c8026e50 
+
+Instructions: (pc=0x00007fb2cf8470a6)
+0x00007fb2cf847086:   e5 41 55 41 54 53 48 83 ec 28 48 2b 0f 48 8b 47
+0x00007fb2cf847096:   18 48 c1 e9 13 48 8d 14 89 4c 8d 24 d0 48 89 f2
+0x00007fb2cf8470a6:   41 8b 4c 24 1c 41 8b 44 24 18 4d 8b 2c 24 81 e1
+0x00007fb2cf8470b6:   ff ff ff 07 48 01 c1 48 81 f9 00 00 01 00 0f 84 
+
+Register to memory mapping:
+
+RAX=0x00007fb2cd55d000 is an unknown value
+RBX=0x00000000860b4920 is pointing into object: 0x00000000860b4908
+java.lang.ref.Finalizer 
+ - klass: 'java/lang/ref/Finalizer'
+RCX=0x00001fffffffef54 is an unknown value
+RDX=0x0000000000000020 is an unknown value
+RSP=0x00007fb2cd683b20 is an unknown value
+RBP=0x00007fb2cd683b60 is an unknown value
+RSI=0x0000000000000020 is an unknown value
+RDI=0x00007fb2cfea36c0: <offset 0x102e6c0> in /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/server/libjvm.so at 0x00007fb2cee75000
+R8 =0x000000000afa74c0 is an unknown value
+R9 =0x00007fb2b52b0000 is an unknown value
+R10=0x000000000afa74b1 is an unknown value
+R11=0x00000000015f4e90 is an unknown value
+R12=0x00057fb2cd533520 is an unknown value
+R13=0x00007fb2cfe78f50: <offset 0x1003f50> in /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/server/libjvm.so at 0x00007fb2cee75000
+R14=0x00007fb2cfe78f50: <offset 0x1003f50> in /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/server/libjvm.so at 0x00007fb2cee75000
+R15=0x00000000e40f9958 is an oop
+java.lang.ref.Finalizer 
+ - klass: 'java/lang/ref/Finalizer'
+
+
+Stack: [0x00007fb2cd585000,0x00007fb2cd685000],  sp=0x00007fb2cd683b20,  free space=1018k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x9d20a6]  ParallelCompactData::calc_new_pointer(HeapWord*)+0x26
+V  [libjvm.so+0x6700a8]  InstanceRefKlass::oop_update_pointers(ParCompactionManager*, oopDesc*)+0x118
+V  [libjvm.so+0x9cbbfd]  MoveAndUpdateClosure::do_addr(HeapWord*, unsigned long)+0x9d
+V  [libjvm.so+0x97e8fb]  ParMarkBitMap::iterate(ParMarkBitMapClosure*, unsigned long, unsigned long) const+0x30b
+V  [libjvm.so+0x9d2a31]  PSParallelCompact::fill_region(ParCompactionManager*, unsigned long)+0x251
+V  [libjvm.so+0x9c4405]  ParCompactionManager::drain_region_stacks()+0xe5
+V  [libjvm.so+0x9a58eb]  DrainStacksCompactionTask::do_it(GCTaskManager*, unsigned int)+0xcb
+V  [libjvm.so+0x5c7046]  GCTaskThread::run()+0x1b6
+V  [libjvm.so+0x95bcd2]  java_start(Thread*)+0x102
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007fb2c8f6f000 
+[error occurred during error reporting (printing all threads), id 0xb]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007fb2c8006960] Threads_lock - owner thread: 0x00007fb2c8145800
+[0x00007fb2c8006e60] Heap_lock - owner thread: 0x00007fb2c8010000
+
+heap address: 0x0000000085600000, size: 1962 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ PSYoungGen      total 202752K, used 11245K [0x00000000d7200000, 0x00000000e4700000, 0x0000000100000000)
+  eden space 191488K, 0% used [0x00000000d7200000,0x00000000d7200000,0x00000000e2d00000)
+  from space 11264K, 99% used [0x00000000e3b00000,0x00000000e45fb6f0,0x00000000e4600000)
+  to   space 13312K, 0% used [0x00000000e2d00000,0x00000000e2d00000,0x00000000e3a00000)
+ ParOldGen       total 55808K, used 11919K [0x0000000085600000, 0x0000000088c80000, 0x00000000d7200000)
+  object space 55808K, 21% used [0x0000000085600000,0x00000000861a3c18,0x0000000088c80000)
+ Metaspace       used 33112K, capacity 35256K, committed 35496K, reserved 1079296K
+  class space    used 4405K, capacity 4764K, committed 4784K, reserved 1048576K
+
+Card table byte_map: [0x00007fb2cdc16000,0x00007fb2cdfec000] byte_map_base: 0x00007fb2cd7eb000
+
+Marking Bits: (ParMarkBitMap*) 0x00007fb2cfea3700
+ Begin Bits: [0x00007fb2b52b0000, 0x00007fb2b7158000)
+ End Bits:   [0x00007fb2b7158000, 0x00007fb2b9000000)
+
+Polling page: 0x00007fb2d0338000
+
+CodeCache: size=245760Kb used=10732Kb max_used=10732Kb free=235027Kb
+ bounds [0x00007fb2b9000000, 0x00007fb2b9a90000, 0x00007fb2c8000000]
+ total_blobs=3486 nmethods=3093 adapters=305
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 3,900 Thread 0x00007fb2c857e800 3101   !   3       org.springframework.beans.factory.support.AbstractBeanFactory::resolveBeanClass (117 bytes)
+Event: 3,901 Thread 0x00007fb2c857e800 nmethod 3101 0x00007fb2b9a78fd0 code [0x00007fb2b9a79340, 0x00007fb2b9a7b808]
+Event: 3,901 Thread 0x00007fb2c857e800 3104       1       org.springframework.beans.factory.support.AbstractBeanFactory::getBeanPostProcessors (5 bytes)
+Event: 3,901 Thread 0x00007fb2c857e800 nmethod 3104 0x00007fb2b9a7c650 code [0x00007fb2b9a7c7a0, 0x00007fb2b9a7c8b0]
+Event: 3,902 Thread 0x00007fb2c857e800 3105   !   3       com.sun.proxy.$Proxy51::annotationType (29 bytes)
+Event: 3,902 Thread 0x00007fb2c857e800 nmethod 3105 0x00007fb2b9a7c910 code [0x00007fb2b9a7caa0, 0x00007fb2b9a7ceb8]
+Event: 3,903 Thread 0x00007fb2c857e800 3106       3       org.springframework.core.MethodParameter::getParameterType (48 bytes)
+Event: 3,903 Thread 0x00007fb2c857e800 nmethod 3106 0x00007fb2b9a7d090 code [0x00007fb2b9a7d260, 0x00007fb2b9a7da38]
+Event: 3,903 Thread 0x00007fb2c857e800 3107   !   3       sun.reflect.GeneratedMethodAccessor8::invoke (63 bytes)
+Event: 3,904 Thread 0x00007fb2c857e800 nmethod 3107 0x00007fb2b9a7dc90 code [0x00007fb2b9a7dec0, 0x00007fb2b9a7e8e8]
+
+GC Heap History (10 events):
+Event: 1,774 GC heap after
+Heap after GC invocations=3 (full 0):
+ PSYoungGen      total 68608K, used 5093K [0x00000000d7200000, 0x00000000df800000, 0x0000000100000000)
+  eden space 63488K, 0% used [0x00000000d7200000,0x00000000d7200000,0x00000000db000000)
+  from space 5120K, 99% used [0x00000000db000000,0x00000000db4f97b0,0x00000000db500000)
+  to   space 5120K, 0% used [0x00000000df300000,0x00000000df300000,0x00000000df800000)
+ ParOldGen       total 84992K, used 4542K [0x0000000085600000, 0x000000008a900000, 0x00000000d7200000)
+  object space 84992K, 5% used [0x0000000085600000,0x0000000085a6f9c8,0x000000008a900000)
+ Metaspace       used 18715K, capacity 19616K, committed 19840K, reserved 1067008K
+  class space    used 2491K, capacity 2680K, committed 2688K, reserved 1048576K
+}
+Event: 1,890 GC heap before
+{Heap before GC invocations=4 (full 0):
+ PSYoungGen      total 68608K, used 22385K [0x00000000d7200000, 0x00000000df800000, 0x0000000100000000)
+  eden space 63488K, 27% used [0x00000000d7200000,0x00000000d82e2cc8,0x00000000db000000)
+  from space 5120K, 99% used [0x00000000db000000,0x00000000db4f97b0,0x00000000db500000)
+  to   space 5120K, 0% used [0x00000000df300000,0x00000000df300000,0x00000000df800000)
+ ParOldGen       total 84992K, used 4542K [0x0000000085600000, 0x000000008a900000, 0x00000000d7200000)
+  object space 84992K, 5% used [0x0000000085600000,0x0000000085a6f9c8,0x000000008a900000)
+ Metaspace       used 20376K, capacity 21236K, committed 21296K, reserved 1067008K
+  class space    used 2634K, capacity 2848K, committed 2864K, reserved 1048576K
+Event: 1,900 GC heap after
+Heap after GC invocations=4 (full 0):
+ PSYoungGen      total 132096K, used 5104K [0x00000000d7200000, 0x00000000df800000, 0x0000000100000000)
+  eden space 126976K, 0% used [0x00000000d7200000,0x00000000d7200000,0x00000000dee00000)
+  from space 5120K, 99% used [0x00000000df300000,0x00000000df7fc108,0x00000000df800000)
+  to   space 5120K, 0% used [0x00000000dee00000,0x00000000dee00000,0x00000000df300000)
+ ParOldGen       total 84992K, used 6397K [0x0000000085600000, 0x000000008a900000, 0x00000000d7200000)
+  object space 84992K, 7% used [0x0000000085600000,0x0000000085c3f510,0x000000008a900000)
+ Metaspace       used 20376K, capacity 21236K, committed 21296K, reserved 1067008K
+  class space    used 2634K, capacity 2848K, committed 2864K, reserved 1048576K
+}
+Event: 1,900 GC heap before
+{Heap before GC invocations=5 (full 1):
+ PSYoungGen      total 132096K, used 5104K [0x00000000d7200000, 0x00000000df800000, 0x0000000100000000)
+  eden space 126976K, 0% used [0x00000000d7200000,0x00000000d7200000,0x00000000dee00000)
+  from space 5120K, 99% used [0x00000000df300000,0x00000000df7fc108,0x00000000df800000)
+  to   space 5120K, 0% used [0x00000000dee00000,0x00000000dee00000,0x00000000df300000)
+ ParOldGen       total 84992K, used 6397K [0x0000000085600000, 0x000000008a900000, 0x00000000d7200000)
+  object space 84992K, 7% used [0x0000000085600000,0x0000000085c3f510,0x000000008a900000)
+ Metaspace       used 20376K, capacity 21236K, committed 21296K, reserved 1067008K
+  class space    used 2634K, capacity 2848K, committed 2864K, reserved 1048576K
+Event: 1,950 GC heap after
+Heap after GC invocations=5 (full 1):
+ PSYoungGen      total 132096K, used 0K [0x00000000d7200000, 0x00000000df800000, 0x0000000100000000)
+  eden space 126976K, 0% used [0x00000000d7200000,0x00000000d7200000,0x00000000dee00000)
+  from space 5120K, 0% used [0x00000000df300000,0x00000000df300000,0x00000000df800000)
+  to   space 5120K, 0% used [0x00000000dee00000,0x00000000dee00000,0x00000000df300000)
+ ParOldGen       total 55808K, used 6897K [0x0000000085600000, 0x0000000088c80000, 0x00000000d7200000)
+  object space 55808K, 12% used [0x0000000085600000,0x0000000085cbc748,0x0000000088c80000)
+ Metaspace       used 20376K, capacity 21236K, committed 21296K, reserved 1067008K
+  class space    used 2634K, capacity 2848K, committed 2864K, reserved 1048576K
+}
+Event: 3,095 GC heap before
+{Heap before GC invocations=6 (full 1):
+ PSYoungGen      total 132096K, used 126976K [0x00000000d7200000, 0x00000000df800000, 0x0000000100000000)
+  eden space 126976K, 100% used [0x00000000d7200000,0x00000000dee00000,0x00000000dee00000)
+  from space 5120K, 0% used [0x00000000df300000,0x00000000df300000,0x00000000df800000)
+  to   space 5120K, 0% used [0x00000000dee00000,0x00000000dee00000,0x00000000df300000)
+ ParOldGen       total 55808K, used 6897K [0x0000000085600000, 0x0000000088c80000, 0x00000000d7200000)
+  object space 55808K, 12% used [0x0000000085600000,0x0000000085cbc748,0x0000000088c80000)
+ Metaspace       used 26172K, capacity 27556K, committed 27824K, reserved 1073152K
+  class space    used 3448K, capacity 3736K, committed 3760K, reserved 1048576K
+Event: 3,103 GC heap after
+Heap after GC invocations=6 (full 1):
+ PSYoungGen      total 132096K, used 5092K [0x00000000d7200000, 0x00000000e4600000, 0x0000000100000000)
+  eden space 126976K, 0% used [0x00000000d7200000,0x00000000d7200000,0x00000000dee00000)
+  from space 5120K, 99% used [0x00000000dee00000,0x00000000df2f92d0,0x00000000df300000)
+  to   space 11264K, 0% used [0x00000000e3b00000,0x00000000e3b00000,0x00000000e4600000)
+ ParOldGen       total 55808K, used 11440K [0x0000000085600000, 0x0000000088c80000, 0x00000000d7200000)
+  object space 55808K, 20% used [0x0000000085600000,0x000000008612c070,0x0000000088c80000)
+ Metaspace       used 26172K, capacity 27556K, committed 27824K, reserved 1073152K
+  class space    used 3448K, capacity 3736K, committed 3760K, reserved 1048576K
+}
+Event: 3,909 GC heap before
+{Heap before GC invocations=7 (full 1):
+ PSYoungGen      total 132096K, used 127642K [0x00000000d7200000, 0x00000000e4600000, 0x0000000100000000)
+  eden space 126976K, 96% used [0x00000000d7200000,0x00000000de9ad8e8,0x00000000dee00000)
+  from space 5120K, 99% used [0x00000000dee00000,0x00000000df2f92d0,0x00000000df300000)
+  to   space 11264K, 0% used [0x00000000e3b00000,0x00000000e3b00000,0x00000000e4600000)
+ ParOldGen       total 55808K, used 11440K [0x0000000085600000, 0x0000000088c80000, 0x00000000d7200000)
+  object space 55808K, 20% used [0x0000000085600000,0x000000008612c070,0x0000000088c80000)
+ Metaspace       used 33112K, capacity 35256K, committed 35496K, reserved 1079296K
+  class space    used 4405K, capacity 4764K, committed 4784K, reserved 1048576K
+Event: 3,923 GC heap after
+Heap after GC invocations=7 (full 1):
+ PSYoungGen      total 202752K, used 11245K [0x00000000d7200000, 0x00000000e4700000, 0x0000000100000000)
+  eden space 191488K, 0% used [0x00000000d7200000,0x00000000d7200000,0x00000000e2d00000)
+  from space 11264K, 99% used [0x00000000e3b00000,0x00000000e45fb6f0,0x00000000e4600000)
+  to   space 13312K, 0% used [0x00000000e2d00000,0x00000000e2d00000,0x00000000e3a00000)
+ ParOldGen       total 55808K, used 11919K [0x0000000085600000, 0x0000000088c80000, 0x00000000d7200000)
+  object space 55808K, 21% used [0x0000000085600000,0x00000000861a3c18,0x0000000088c80000)
+ Metaspace       used 33112K, capacity 35256K, committed 35496K, reserved 1079296K
+  class space    used 4405K, capacity 4764K, committed 4784K, reserved 1048576K
+}
+Event: 3,923 GC heap before
+{Heap before GC invocations=8 (full 2):
+ PSYoungGen      total 202752K, used 11245K [0x00000000d7200000, 0x00000000e4700000, 0x0000000100000000)
+  eden space 191488K, 0% used [0x00000000d7200000,0x00000000d7200000,0x00000000e2d00000)
+  from space 11264K, 99% used [0x00000000e3b00000,0x00000000e45fb6f0,0x00000000e4600000)
+  to   space 13312K, 0% used [0x00000000e2d00000,0x00000000e2d00000,0x00000000e3a00000)
+ ParOldGen       total 55808K, used 11919K [0x0000000085600000, 0x0000000088c80000, 0x00000000d7200000)
+  object space 55808K, 21% used [0x0000000085600000,0x00000000861a3c18,0x0000000088c80000)
+ Metaspace       used 33112K, capacity 35256K, committed 35496K, reserved 1079296K
+  class space    used 4405K, capacity 4764K, committed 4784K, reserved 1048576K
+
+Deoptimization events (10 events):
+Event: 3,707 Thread 0x00007fb2c8010000 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007fb2b9a0dc90 method=java.net.URL.getURLStreamHandler(Ljava/lang/String;)Ljava/net/URLStreamHandler; @ 7
+Event: 3,710 Thread 0x00007fb2c8010000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fb2b95311bc method=java.util.zip.InflaterInputStream.read([BII)I @ 100
+Event: 3,710 Thread 0x00007fb2c8010000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fb2b95311bc method=java.util.zip.InflaterInputStream.read([BII)I @ 100
+Event: 3,710 Thread 0x00007fb2c8010000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fb2b95311bc method=java.util.zip.InflaterInputStream.read([BII)I @ 100
+Event: 3,710 Thread 0x00007fb2c8010000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fb2b95311bc method=java.util.zip.InflaterInputStream.read([BII)I @ 100
+Event: 3,774 Thread 0x00007fb2c8010000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fb2b99d7308 method=java.util.concurrent.ConcurrentHashMap.get(Ljava/lang/Object;)Ljava/lang/Object; @ 152
+Event: 3,840 Thread 0x00007fb2c8010000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fb2b9379bbc method=org.springframework.boot.context.properties.source.ConfigurationPropertyName$Elements.charAt(II)C @ 43
+Event: 3,840 Thread 0x00007fb2c8010000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fb2b9379bbc method=org.springframework.boot.context.properties.source.ConfigurationPropertyName$Elements.charAt(II)C @ 43
+Event: 3,861 Thread 0x00007fb2c8010000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fb2b924c1d0 method=java.lang.AbstractStringBuilder.append(Ljava/lang/String;)Ljava/lang/AbstractStringBuilder; @ 1
+Event: 3,879 Thread 0x00007fb2c8010000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fb2b95a007c method=org.springframework.boot.context.properties.source.ConfigurationPropertyName.getElement(ILorg/springframework/boot/context/properties/source/ConfigurationPropertyName$Form;)
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 3,393 Thread 0x00007fb2c8010000 Exception <a 'java/lang/ClassNotFoundException': org/springframework/context/annotation/ImportAwareCustomizer> (0x00000000d8f04728) thrown at [/home/jenkins/node/workspace/Corretto8/generic_linux/x64/build/Corretto8Src/installers/linux/universal/tar/corre
+Event: 3,393 Thread 0x00007fb2c8010000 Exception <a 'java/lang/ClassNotFoundException': org/springframework/beans/factory/AwareCustomizer> (0x00000000d8f1a660) thrown at [/home/jenkins/node/workspace/Corretto8/generic_linux/x64/build/Corretto8Src/installers/linux/universal/tar/corretto-build/b
+Event: 3,432 Thread 0x00007fb2c8010000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$map$1(Ljava/util/function/Function;)Ljava/util/stream/Stream;> (0x00000000d946c910) thrown at [/home/jenkins/node/workspace/Corretto8/generic_linux/x64/build/Corretto8Src/installers/linux
+Event: 3,437 Thread 0x00007fb2c8010000 Implicit null exception at 0x00007fb2b992b60c to 0x00007fb2b9930e79
+Event: 3,509 Thread 0x00007fb2c8010000 Exception <a 'java/lang/IncompatibleClassChangeError': Found class java.lang.Object, but interface was expected> (0x00000000d9ae34b8) thrown at [/home/jenkins/node/workspace/Corretto8/generic_linux/x64/build/Corretto8Src/installers/linux/universal/tar/cor
+Event: 3,707 Thread 0x00007fb2c8010000 Implicit null exception at 0x00007fb2b9a0bdc3 to 0x00007fb2b9a0dc85
+Event: 3,744 Thread 0x00007fb2c8010000 Exception <a 'java/io/FileNotFoundException'> (0x00000000dd85a008) thrown at [/home/jenkins/node/workspace/Corretto8/generic_linux/x64/build/Corretto8Src/installers/linux/universal/tar/corretto-build/buildRoot/src/hotspot/src/share/vm/prims/jni.cpp, line 
+Event: 3,744 Thread 0x00007fb2c8010000 Exception <a 'java/io/FileNotFoundException'> (0x00000000dd85b558) thrown at [/home/jenkins/node/workspace/Corretto8/generic_linux/x64/build/Corretto8Src/installers/linux/universal/tar/corretto-build/buildRoot/src/hotspot/src/share/vm/prims/jni.cpp, line 
+Event: 3,822 Thread 0x00007fb2c8010000 Exception <a 'java/io/FileNotFoundException'> (0x00000000dde3a600) thrown at [/home/jenkins/node/workspace/Corretto8/generic_linux/x64/build/Corretto8Src/installers/linux/universal/tar/corretto-build/buildRoot/src/hotspot/src/share/vm/prims/jni.cpp, line 
+Event: 3,861 Thread 0x00007fb2c8010000 Implicit null exception at 0x00007fb2b924bdf5 to 0x00007fb2b924c1bd
+
+Events (10 events):
+Event: 3,908 loading class org/springframework/transaction/InvalidIsolationLevelException done
+Event: 3,908 loading class org/springframework/jdbc/datasource/ConnectionHandle
+Event: 3,908 loading class org/springframework/jdbc/datasource/ConnectionHandle done
+Event: 3,909 loading class org/hibernate/HibernateException
+Event: 3,909 loading class org/hibernate/HibernateException done
+Event: 3,909 loading class org/springframework/dao/DataAccessResourceFailureException
+Event: 3,909 loading class org/springframework/dao/DataAccessResourceFailureException done
+Event: 3,909 loading class org/springframework/dao/NonTransientDataAccessResourceException
+Event: 3,909 loading class org/springframework/dao/NonTransientDataAccessResourceException done
+Event: 3,909 Executing VM operation: CollectForMetadataAllocation
+
+
+Dynamic libraries:
+85600000-88c80000 rw-p 00000000 00:00 0 
+88c80000-d7200000 ---p 00000000 00:00 0 
+d7200000-e4700000 rw-p 00000000 00:00 0 
+e4700000-100000000 ---p 00000000 00:00 0 
+100000000-1004ac000 rw-p 00000000 00:00 0 
+1004ac000-140000000 ---p 00000000 00:00 0 
+557309e00000-557309e01000 r-xp 00000000 08:12 10620025                   /home/mariana/.jdks/corretto-1.8.0_302/bin/java
+55730a000000-55730a001000 r--p 00000000 08:12 10620025                   /home/mariana/.jdks/corretto-1.8.0_302/bin/java
+55730a001000-55730a002000 rw-p 00001000 08:12 10620025                   /home/mariana/.jdks/corretto-1.8.0_302/bin/java
+55730ae8b000-55730aeac000 rw-p 00000000 00:00 0                          [heap]
+7fb264000000-7fb264021000 rw-p 00000000 00:00 0 
+7fb264021000-7fb268000000 ---p 00000000 00:00 0 
+7fb26c000000-7fb26c021000 rw-p 00000000 00:00 0 
+7fb26c021000-7fb270000000 ---p 00000000 00:00 0 
+7fb270000000-7fb27005a000 rw-p 00000000 00:00 0 
+7fb27005a000-7fb274000000 ---p 00000000 00:00 0 
+7fb274000000-7fb274021000 rw-p 00000000 00:00 0 
+7fb274021000-7fb278000000 ---p 00000000 00:00 0 
+7fb278000000-7fb278398000 rw-p 00000000 00:00 0 
+7fb278398000-7fb27c000000 ---p 00000000 00:00 0 
+7fb27c000000-7fb27cde8000 rw-p 00000000 00:00 0 
+7fb27cde8000-7fb280000000 ---p 00000000 00:00 0 
+7fb280000000-7fb280021000 rw-p 00000000 00:00 0 
+7fb280021000-7fb284000000 ---p 00000000 00:00 0 
+7fb284000000-7fb284e83000 rw-p 00000000 00:00 0 
+7fb284e83000-7fb288000000 ---p 00000000 00:00 0 
+7fb288000000-7fb2892be000 rw-p 00000000 00:00 0 
+7fb2892be000-7fb28c000000 ---p 00000000 00:00 0 
+7fb28c000000-7fb28c021000 rw-p 00000000 00:00 0 
+7fb28c021000-7fb290000000 ---p 00000000 00:00 0 
+7fb290000000-7fb290021000 rw-p 00000000 00:00 0 
+7fb290021000-7fb294000000 ---p 00000000 00:00 0 
+7fb294000000-7fb294021000 rw-p 00000000 00:00 0 
+7fb294021000-7fb298000000 ---p 00000000 00:00 0 
+7fb298000000-7fb298021000 rw-p 00000000 00:00 0 
+7fb298021000-7fb29c000000 ---p 00000000 00:00 0 
+7fb29cd44000-7fb29cd47000 ---p 00000000 00:00 0 
+7fb29cd47000-7fb29d043000 rw-p 00000000 00:00 0 
+7fb29d043000-7fb29d045000 ---p 00000000 00:00 0 
+7fb29d045000-7fb29d245000 rw-p 00000000 00:00 0 
+7fb29d245000-7fb29d445000 rw-p 00000000 00:00 0 
+7fb29d4bf000-7fb29d4d0000 r--s 001c4000 08:12 10620170                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/jsse.jar
+7fb29d4d0000-7fb29d6d0000 rw-p 00000000 00:00 0 
+7fb29d6d0000-7fb29d8d0000 rw-p 00000000 00:00 0 
+7fb29d8d0000-7fb29dad0000 rw-p 00000000 00:00 0 
+7fb29dad0000-7fb29dad3000 ---p 00000000 00:00 0 
+7fb29dad3000-7fb29ddd1000 rw-p 00000000 00:00 0 
+7fb29ddd1000-7fb29dfd1000 rw-p 00000000 00:00 0 
+7fb29dfd1000-7fb29dfd4000 ---p 00000000 00:00 0 
+7fb29dfd4000-7fb29e2d2000 rw-p 00000000 00:00 0 
+7fb29e2d2000-7fb29e2d5000 ---p 00000000 00:00 0 
+7fb29e2d5000-7fb29e3d3000 rw-p 00000000 00:00 0 
+7fb29e3d3000-7fb29e3dc000 r-xp 00000000 08:12 10620082                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libmanagement.so
+7fb29e3dc000-7fb29e5db000 ---p 00009000 08:12 10620082                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libmanagement.so
+7fb29e5db000-7fb29e5dc000 r--p 00008000 08:12 10620082                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libmanagement.so
+7fb29e5dc000-7fb29e5dd000 rw-p 00009000 08:12 10620082                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libmanagement.so
+7fb29e5dd000-7fb29e7dd000 rw-p 00000000 00:00 0 
+7fb29e7dd000-7fb29e9dd000 rw-p 00000000 00:00 0 
+7fb29e9dd000-7fb29ea03000 r--p 00000000 08:12 2629590                    /usr/share/locale-langpack/pt_BR/LC_MESSAGES/libc.mo
+7fb29ea03000-7fb29ea04000 ---p 00000000 00:00 0 
+7fb29ea04000-7fb29eb04000 rw-p 00000000 00:00 0 
+7fb29eb04000-7fb29eb07000 ---p 00000000 00:00 0 
+7fb29eb07000-7fb29ec05000 rw-p 00000000 00:00 0 
+7fb29ec05000-7fb29ec06000 ---p 00000000 00:00 0 
+7fb29ec06000-7fb29ec09000 ---p 00000000 00:00 0 
+7fb29ec09000-7fb29ed06000 rw-p 00000000 00:00 0 
+7fb29ed06000-7fb29ed07000 ---p 00000000 00:00 0 
+7fb29ed07000-7fb29ed0a000 ---p 00000000 00:00 0 
+7fb29ed0a000-7fb29ee07000 rw-p 00000000 00:00 0 
+7fb29ee07000-7fb29ee08000 ---p 00000000 00:00 0 
+7fb29ee08000-7fb29ee0b000 ---p 00000000 00:00 0 
+7fb29ee0b000-7fb29ef08000 rw-p 00000000 00:00 0 
+7fb29ef08000-7fb29ef0b000 ---p 00000000 00:00 0 
+7fb29ef0b000-7fb29f009000 rw-p 00000000 00:00 0 
+7fb29f009000-7fb29f021000 r-xp 00000000 08:12 10620080                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libnet.so
+7fb29f021000-7fb29f220000 ---p 00018000 08:12 10620080                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libnet.so
+7fb29f220000-7fb29f221000 r--p 00017000 08:12 10620080                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libnet.so
+7fb29f221000-7fb29f222000 rw-p 00018000 08:12 10620080                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libnet.so
+7fb29f222000-7fb2a0000000 r--p 00000000 08:12 399874                     /usr/lib/locale/locale-archive
+7fb2a0000000-7fb2a029f000 rw-p 00000000 00:00 0 
+7fb2a029f000-7fb2a4000000 ---p 00000000 00:00 0 
+7fb2a4000000-7fb2a4021000 rw-p 00000000 00:00 0 
+7fb2a4021000-7fb2a8000000 ---p 00000000 00:00 0 
+7fb2a8000000-7fb2a8021000 rw-p 00000000 00:00 0 
+7fb2a8021000-7fb2ac000000 ---p 00000000 00:00 0 
+7fb2ac000000-7fb2ac021000 rw-p 00000000 00:00 0 
+7fb2ac021000-7fb2b0000000 ---p 00000000 00:00 0 
+7fb2b0000000-7fb2b0021000 rw-p 00000000 00:00 0 
+7fb2b0021000-7fb2b4000000 ---p 00000000 00:00 0 
+7fb2b400e000-7fb2b4019000 r--s 00116000 08:12 10620159                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/ext/localedata.jar
+7fb2b4019000-7fb2b4020000 r--s 00000000 08:12 1050190                    /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7fb2b4020000-7fb2b4026000 r--s 000d3000 08:12 10620171                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/jfr.jar
+7fb2b4026000-7fb2b4037000 r-xp 00000000 08:12 10620087                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libnio.so
+7fb2b4037000-7fb2b4237000 ---p 00011000 08:12 10620087                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libnio.so
+7fb2b4237000-7fb2b4238000 r--p 00011000 08:12 10620087                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libnio.so
+7fb2b4238000-7fb2b4239000 rw-p 00012000 08:12 10620087                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libnio.so
+7fb2b4239000-7fb2b423b000 r--s 0001d000 07:0d 629                        /snap/intellij-idea-community/330/lib/idea_rt.jar
+7fb2b423b000-7fb2b4245000 r--s 000b7000 08:12 11141247                   /home/mariana/.m2/repository/org/postgresql/postgresql/42.2.2/postgresql-42.2.2.jar
+7fb2b4245000-7fb2b424a000 r--s 00055000 08:12 11014028                   /home/mariana/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.5/jackson-core-2.12.5.jar
+7fb2b424a000-7fb2b424d000 r--s 00010000 08:12 11014030                   /home/mariana/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.5/jackson-annotations-2.12.5.jar
+7fb2b424d000-7fb2b4264000 r--s 0015c000 08:12 11014026                   /home/mariana/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.5/jackson-databind-2.12.5.jar
+7fb2b4264000-7fb2b4267000 r--s 00019000 08:12 10620631                   /home/mariana/.m2/repository/io/jsonwebtoken/jjwt/0.9.1/jjwt-0.9.1.jar
+7fb2b4267000-7fb2b4270000 r--s 00049000 08:12 11142741                   /home/mariana/.m2/repository/org/springframework/spring-tx/5.3.12/spring-tx-5.3.12.jar
+7fb2b4270000-7fb2b427d000 r--s 0009e000 08:12 11142733                   /home/mariana/.m2/repository/org/springframework/spring-beans/5.3.12/spring-beans-5.3.12.jar
+7fb2b427d000-7fb2b4287000 r--s 0005f000 08:12 11142735                   /home/mariana/.m2/repository/org/springframework/spring-jdbc/5.3.12/spring-jdbc-5.3.12.jar
+7fb2b4287000-7fb2b4297000 r--s 00086000 08:12 11274614                   /home/mariana/.m2/repository/org/springframework/security/spring-security-web/5.5.3/spring-security-web-5.5.3.jar
+7fb2b4297000-7fb2b429a000 r--s 00011000 08:12 11274612                   /home/mariana/.m2/repository/org/springframework/security/spring-security-crypto/5.5.3/spring-security-crypto-5.5.3.jar
+7fb2b429a000-7fb2b42a5000 r--s 00052000 08:12 11274610                   /home/mariana/.m2/repository/org/springframework/security/spring-security-core/5.5.3/spring-security-core-5.5.3.jar
+7fb2b42a5000-7fb2b42b9000 r--s 00127000 08:12 11274608                   /home/mariana/.m2/repository/org/springframework/security/spring-security-config/5.5.3/spring-security-config-5.5.3.jar
+7fb2b42b9000-7fb2b42c2000 r--s 00055000 08:12 11142768                   /home/mariana/.m2/repository/org/springframework/spring-aop/5.3.12/spring-aop-5.3.12.jar
+7fb2b42c2000-7fb2b42c3000 r--s 00001000 08:12 11274606                   /home/mariana/.m2/repository/org/springframework/boot/spring-boot-starter-security/2.5.6/spring-boot-starter-security-2.5.6.jar
+7fb2b42c3000-7fb2b42c5000 r--s 0000a000 08:12 11142732                   /home/mariana/.m2/repository/org/springframework/spring-aspects/5.3.12/spring-aspects-5.3.12.jar
+7fb2b42c5000-7fb2b42c9000 r--s 0002e000 08:12 11142715                   /home/mariana/.m2/repository/org/springframework/spring-orm/5.3.12/spring-orm-5.3.12.jar
+7fb2b42c9000-7fb2b42e3000 r--s 0011a000 08:12 11142727                   /home/mariana/.m2/repository/org/springframework/data/spring-data-commons/2.5.6/spring-data-commons-2.5.6.jar
+7fb2b42e3000-7fb2b42ec000 r--s 00054000 08:12 11142725                   /home/mariana/.m2/repository/org/springframework/data/spring-data-jpa/2.5.6/spring-data-jpa-2.5.6.jar
+7fb2b42ec000-7fb2b42ee000 r--s 0000f000 08:12 11141535                   /home/mariana/.m2/repository/com/sun/activation/jakarta.activation/1.2.2/jakarta.activation-1.2.2.jar
+7fb2b42ee000-7fb2b42f0000 r--s 00006000 08:12 11141525                   /home/mariana/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.12/istack-commons-runtime-3.0.12.jar
+7fb2b42f0000-7fb2b42f2000 r--s 00010000 08:12 11141520                   /home/mariana/.m2/repository/org/glassfish/jaxb/txw2/2.3.5/txw2-2.3.5.jar
+7fb2b42f2000-7fb2b4307000 r--s 000e4000 08:12 11141510                   /home/mariana/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.5/jaxb-runtime-2.3.5.jar
+7fb2b4307000-7fb2b430a000 r--s 00011000 08:12 11141528                   /home/mariana/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final/hibernate-commons-annotations-5.1.2.Final.jar
+7fb2b430a000-7fb2b430f000 r--s 0004b000 08:12 11141526                   /home/mariana/.m2/repository/org/dom4j/dom4j/2.1.3/dom4j-2.1.3.jar
+7fb2b430f000-7fb2b4312000 r--s 0002f000 08:12 11141524                   /home/mariana/.m2/repository/org/jboss/jandex/2.2.3.Final/jandex-2.2.3.Final.jar
+7fb2b4312000-7fb2b4317000 r--s 00068000 08:12 10618544                   /home/mariana/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar
+7fb2b4317000-7fb2b4322000 r--s 000b5000 08:12 11141522                   /home/mariana/.m2/repository/org/javassist/javassist/3.27.0-GA/javassist-3.27.0-GA.jar
+7fb2b4322000-7fb2b43a8000 r--s 0067d000 08:12 11141518                   /home/mariana/.m2/repository/org/hibernate/hibernate-core/5.4.32.Final/hibernate-core-5.4.32.Final.jar
+7fb2b43a8000-7fb2b43ae000 r--s 00023000 08:12 11141508                   /home/mariana/.m2/repository/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3.jar
+7fb2b43ae000-7fb2b43af000 r--s 00003000 08:12 11141513                   /home/mariana/.m2/repository/jakarta/transaction/jakarta.transaction-api/1.3.3/jakarta.transaction-api-1.3.3.jar
+7fb2b43af000-7fb2b43b2000 r--s 00024000 08:12 11141346                   /home/mariana/.m2/repository/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar
+7fb2b43b2000-7fb2b43b3000 r--s 00001000 08:12 11142718                   /home/mariana/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/2.5.6/spring-boot-starter-jdbc-2.5.6.jar
+7fb2b43b3000-7fb2b43cc000 r--s 001e5000 08:12 11141545                   /home/mariana/.m2/repository/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar
+7fb2b43cc000-7fb2b43cd000 r--s 00001000 08:12 11142707                   /home/mariana/.m2/repository/org/springframework/boot/spring-boot-starter-aop/2.5.6/spring-boot-starter-aop-2.5.6.jar
+7fb2b43cd000-7fb2b43ce000 r--s 00001000 08:12 11142705                   /home/mariana/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/2.5.6/spring-boot-starter-data-jpa-2.5.6.jar
+7fb2b43ce000-7fb2b43cf000 r--s 00005000 08:12 11142773                   /home/mariana/.m2/repository/org/springframework/spring-jcl/5.3.12/spring-jcl-5.3.12.jar
+7fb2b43cf000-7fb2b43eb000 r--s 0014e000 08:12 11142740                   /home/mariana/.m2/repository/org/springframework/spring-core/5.3.12/spring-core-5.3.12.jar
+7fb2b43eb000-7fb2b4436000 r--s 0030f000 08:12 10224584                   /home/mariana/.m2/repository/net/bytebuddy/byte-buddy/1.10.22/byte-buddy-1.10.22.jar
+7fb2b4436000-7fb2b4438000 r--s 0000a000 08:12 10224513                   /home/mariana/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar
+7fb2b4438000-7fb2b443c000 r--s 00019000 08:12 10224612                   /home/mariana/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar
+7fb2b443c000-7fb2b443e000 r--s 00009000 08:12 10224559                   /home/mariana/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar
+7fb2b443e000-7fb2b4443000 r--s 00042000 08:12 11142767                   /home/mariana/.m2/repository/org/springframework/spring-expression/5.3.12/spring-expression-5.3.12.jar
+7fb2b4443000-7fb2b445f000 r--s 0011a000 08:12 11142729                   /home/mariana/.m2/repository/org/springframework/spring-context/5.3.12/spring-context-5.3.12.jar
+7fb2b445f000-7fb2b4471000 r--s 000e9000 08:12 11142766                   /home/mariana/.m2/repository/org/springframework/spring-webmvc/5.3.12/spring-webmvc-5.3.12.jar
+7fb2b4471000-7fb2b4490000 r--s 00170000 08:12 11142737                   /home/mariana/.m2/repository/org/springframework/spring-web/5.3.12/spring-web-5.3.12.jar
+7fb2b4490000-7fb2b4496000 r--s 0003e000 08:12 11142760                   /home/mariana/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.54/tomcat-embed-websocket-9.0.54.jar
+7fb2b4496000-7fb2b44bf000 r--s 0031d000 08:12 11142744                   /home/mariana/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.54/tomcat-embed-core-9.0.54.jar
+7fb2b44bf000-7fb2b44c0000 r--s 00001000 08:12 11142749                   /home/mariana/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/2.5.6/spring-boot-starter-tomcat-2.5.6.jar
+7fb2b44c0000-7fb2b44c2000 r--s 00001000 08:12 11014032                   /home/mariana/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.12.5/jackson-module-parameter-names-2.12.5.jar
+7fb2b44c2000-7fb2b44c5000 r--s 0001b000 08:12 11141310                   /home/mariana/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.12.5/jackson-datatype-jsr310-2.12.5.jar
+7fb2b44c5000-7fb2b44c7000 r--s 00007000 08:12 11141308                   /home/mariana/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.12.5/jackson-datatype-jdk8-2.12.5.jar
+7fb2b44c7000-7fb2b44c8000 r--s 00001000 08:12 11142756                   /home/mariana/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.5.6/spring-boot-starter-json-2.5.6.jar
+7fb2b44c8000-7fb2b44c9000 r--s 00001000 08:12 11142750                   /home/mariana/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.5.6/spring-boot-starter-web-2.5.6.jar
+7fb2b44c9000-7fb2b44cb000 r--s 0000f000 08:12 10883322                   /home/mariana/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar
+7fb2b44cb000-7fb2b44cd000 r--s 0000d000 08:12 11141529                   /home/mariana/.m2/repository/org/jboss/logging/jboss-logging/3.4.2.Final/jboss-logging-3.4.2.Final.jar
+7fb2b44cd000-7fb2b44d2000 r--s 00012000 08:12 10883333                   /home/mariana/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar
+7fb2b44d2000-7fb2b44f4000 r--s 0011f000 08:12 11142748                   /home/mariana/.m2/repository/org/hibernate/validator/hibernate-validator/6.2.0.Final/hibernate-validator-6.2.0.Final.jar
+7fb2b44f4000-7fb2b44f9000 r--s 0003a000 08:12 11142758                   /home/mariana/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/9.0.54/tomcat-embed-el-9.0.54.jar
+7fb2b44f9000-7fb2b4500000 r--s 00049000 08:12 10224504                   /home/mariana/.m2/repository/org/yaml/snakeyaml/1.28/snakeyaml-1.28.jar
+7fb2b4500000-7fb2b4502000 r--s 00005000 08:12 10224492                   /home/mariana/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar
+7fb2b4502000-7fb2b450d000 r--s 00069000 08:12 11013960                   /home/mariana/.m2/repository/ch/qos/logback/logback-core/1.2.6/logback-core-1.2.6.jar
+7fb2b450d000-7fb2b45a3000 r--s 007cf000 08:12 10620163                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/ext/jfxrt.jar
+7fb2b45a3000-7fb2b45a6000 ---p 00000000 00:00 0 
+7fb2b45a6000-7fb2b46a4000 rw-p 00000000 00:00 0 
+7fb2b46a4000-7fb2b46a7000 ---p 00000000 00:00 0 
+7fb2b46a7000-7fb2b47a5000 rw-p 00000000 00:00 0 
+7fb2b47a5000-7fb2b47a8000 ---p 00000000 00:00 0 
+7fb2b47a8000-7fb2b48a6000 rw-p 00000000 00:00 0 
+7fb2b48a6000-7fb2b48a7000 ---p 00000000 00:00 0 
+7fb2b48a7000-7fb2b9000000 rw-p 00000000 00:00 0 
+7fb2b9000000-7fb2b9a90000 rwxp 00000000 00:00 0 
+7fb2b9a90000-7fb2c8000000 ---p 00000000 00:00 0 
+7fb2c8000000-7fb2c8fa1000 rw-p 00000000 00:00 0 
+7fb2c8fa1000-7fb2cc000000 ---p 00000000 00:00 0 
+7fb2cc000000-7fb2cc002000 r--s 00000000 08:12 10224510                   /home/mariana/.m2/repository/org/slf4j/jul-to-slf4j/1.7.32/jul-to-slf4j-1.7.32.jar
+7fb2cc002000-7fb2cc008000 r--s 00044000 08:12 10224508                   /home/mariana/.m2/repository/org/apache/logging/log4j/log4j-api/2.14.1/log4j-api-2.14.1.jar
+7fb2cc008000-7fb2cc00a000 r--s 00003000 08:12 10224506                   /home/mariana/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.14.1/log4j-to-slf4j-2.14.1.jar
+7fb2cc00a000-7fb2cc011000 r--s 00041000 08:12 11013958                   /home/mariana/.m2/repository/ch/qos/logback/logback-classic/1.2.6/logback-classic-1.2.6.jar
+7fb2cc011000-7fb2cc012000 r--s 00001000 08:12 11142710                   /home/mariana/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.5.6/spring-boot-starter-logging-2.5.6.jar
+7fb2cc012000-7fb2cc03e000 r--s 00153000 08:12 11142775                   /home/mariana/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.5.6/spring-boot-autoconfigure-2.5.6.jar
+7fb2cc03e000-7fb2cc05c000 r--s 00137000 08:12 11142774                   /home/mariana/.m2/repository/org/springframework/boot/spring-boot/2.5.6/spring-boot-2.5.6.jar
+7fb2cc05c000-7fb2cc05d000 r--s 00001000 08:12 11142759                   /home/mariana/.m2/repository/org/springframework/boot/spring-boot-starter/2.5.6/spring-boot-starter-2.5.6.jar
+7fb2cc05d000-7fb2cc05e000 r--s 00001000 08:12 11142736                   /home/mariana/.m2/repository/org/springframework/boot/spring-boot-starter-validation/2.5.6/spring-boot-starter-validation-2.5.6.jar
+7fb2cc05e000-7fb2cc071000 r--s 0034b000 08:12 10620173                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/resources.jar
+7fb2cc071000-7fb2cc072000 r--s 00000000 08:12 10620168                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/management-agent.jar
+7fb2cc072000-7fb2cc083000 r--s 001c4000 08:12 10620170                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/jsse.jar
+7fb2cc083000-7fb2cc085000 r--s 00007000 08:12 10620177                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/jfxswt.jar
+7fb2cc085000-7fb2cc08b000 r--s 000d3000 08:12 10620171                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/jfr.jar
+7fb2cc08b000-7fb2cc08d000 r--s 00016000 08:12 10620167                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/jce.jar
+7fb2cc08d000-7fb2cc092000 r--s 002f9000 08:12 10620172                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/charsets.jar
+7fb2cc092000-7fb2cc6e6000 rw-p 00000000 00:00 0 
+7fb2cc6e6000-7fb2cc8b7000 r--s 03ca7000 08:12 10620174                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/rt.jar
+7fb2cc8b7000-7fb2cd584000 rw-p 00000000 00:00 0 
+7fb2cd584000-7fb2cd585000 ---p 00000000 00:00 0 
+7fb2cd585000-7fb2cd685000 rw-p 00000000 00:00 0 
+7fb2cd685000-7fb2cd686000 ---p 00000000 00:00 0 
+7fb2cd686000-7fb2cd786000 rw-p 00000000 00:00 0 
+7fb2cd786000-7fb2cd787000 ---p 00000000 00:00 0 
+7fb2cd787000-7fb2cd887000 rw-p 00000000 00:00 0 
+7fb2cd887000-7fb2cd888000 ---p 00000000 00:00 0 
+7fb2cd888000-7fb2cd9a4000 rw-p 00000000 00:00 0 
+7fb2cd9a4000-7fb2cdc16000 ---p 00000000 00:00 0 
+7fb2cdc16000-7fb2cdc32000 rw-p 00000000 00:00 0 
+7fb2cdc32000-7fb2cdea4000 ---p 00000000 00:00 0 
+7fb2cdea4000-7fb2cdf0f000 rw-p 00000000 00:00 0 
+7fb2cdf0f000-7fb2cdfeb000 ---p 00000000 00:00 0 
+7fb2cdfeb000-7fb2ce017000 rw-p 00000000 00:00 0 
+7fb2ce017000-7fb2ce3ac000 ---p 00000000 00:00 0 
+7fb2ce3ac000-7fb2ce3c7000 r-xp 00000000 08:12 10620075                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libzip.so
+7fb2ce3c7000-7fb2ce5c6000 ---p 0001b000 08:12 10620075                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libzip.so
+7fb2ce5c6000-7fb2ce5c7000 r--p 0001a000 08:12 10620075                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libzip.so
+7fb2ce5c7000-7fb2ce5c8000 rw-p 0001b000 08:12 10620075                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libzip.so
+7fb2ce5c8000-7fb2ce5d0000 rw-s 00000000 08:12 6422777                    /tmp/hsperfdata_mariana/16529
+7fb2ce5d0000-7fb2ce5da000 r-xp 00000000 08:12 10620079                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libinstrument.so
+7fb2ce5da000-7fb2ce7d9000 ---p 0000a000 08:12 10620079                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libinstrument.so
+7fb2ce7d9000-7fb2ce7da000 r--p 00009000 08:12 10620079                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libinstrument.so
+7fb2ce7da000-7fb2ce7db000 rw-p 0000a000 08:12 10620079                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libinstrument.so
+7fb2ce7db000-7fb2ce805000 r-xp 00000000 08:12 10620072                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libjava.so
+7fb2ce805000-7fb2cea04000 ---p 0002a000 08:12 10620072                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libjava.so
+7fb2cea04000-7fb2cea05000 r--p 00029000 08:12 10620072                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libjava.so
+7fb2cea05000-7fb2cea07000 rw-p 0002a000 08:12 10620072                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libjava.so
+7fb2cea07000-7fb2cea18000 r-xp 00000000 08:12 10620064                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libverify.so
+7fb2cea18000-7fb2cec17000 ---p 00011000 08:12 10620064                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libverify.so
+7fb2cec17000-7fb2cec19000 r--p 00010000 08:12 10620064                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libverify.so
+7fb2cec19000-7fb2cec1a000 rw-p 00012000 08:12 10620064                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/libverify.so
+7fb2cec1a000-7fb2cec1d000 r--p 00000000 08:12 401516                     /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7fb2cec1d000-7fb2cec21000 r-xp 00003000 08:12 401516                     /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7fb2cec21000-7fb2cec22000 r--p 00007000 08:12 401516                     /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7fb2cec22000-7fb2cec23000 ---p 00008000 08:12 401516                     /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7fb2cec23000-7fb2cec24000 r--p 00008000 08:12 401516                     /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7fb2cec24000-7fb2cec25000 rw-p 00009000 08:12 401516                     /usr/lib/x86_64-linux-gnu/librt-2.31.so
+7fb2cec25000-7fb2cec26000 ---p 00000000 00:00 0 
+7fb2cec26000-7fb2cec29000 ---p 00000000 00:00 0 
+7fb2cec29000-7fb2ced26000 rw-p 00000000 00:00 0 
+7fb2ced26000-7fb2ced35000 r--p 00000000 08:12 401190                     /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7fb2ced35000-7fb2ceddc000 r-xp 0000f000 08:12 401190                     /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7fb2ceddc000-7fb2cee73000 r--p 000b6000 08:12 401190                     /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7fb2cee73000-7fb2cee74000 r--p 0014c000 08:12 401190                     /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7fb2cee74000-7fb2cee75000 rw-p 0014d000 08:12 401190                     /usr/lib/x86_64-linux-gnu/libm-2.31.so
+7fb2cee75000-7fb2cfbcd000 r-xp 00000000 08:12 10620057                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/server/libjvm.so
+7fb2cfbcd000-7fb2cfdcd000 ---p 00d58000 08:12 10620057                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/server/libjvm.so
+7fb2cfdcd000-7fb2cfe64000 r--p 00d58000 08:12 10620057                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/server/libjvm.so
+7fb2cfe64000-7fb2cfe8d000 rw-p 00def000 08:12 10620057                   /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/amd64/server/libjvm.so
+7fb2cfe8d000-7fb2cfec2000 rw-p 00000000 00:00 0 
+7fb2cfec2000-7fb2cfee7000 r--p 00000000 08:12 400548                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7fb2cfee7000-7fb2d005f000 r-xp 00025000 08:12 400548                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7fb2d005f000-7fb2d00a9000 r--p 0019d000 08:12 400548                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7fb2d00a9000-7fb2d00aa000 ---p 001e7000 08:12 400548                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7fb2d00aa000-7fb2d00ad000 r--p 001e7000 08:12 400548                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7fb2d00ad000-7fb2d00b0000 rw-p 001ea000 08:12 400548                     /usr/lib/x86_64-linux-gnu/libc-2.31.so
+7fb2d00b0000-7fb2d00b4000 rw-p 00000000 00:00 0 
+7fb2d00b4000-7fb2d00b5000 r--p 00000000 08:12 400683                     /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7fb2d00b5000-7fb2d00b7000 r-xp 00001000 08:12 400683                     /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7fb2d00b7000-7fb2d00b8000 r--p 00003000 08:12 400683                     /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7fb2d00b8000-7fb2d00b9000 r--p 00003000 08:12 400683                     /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7fb2d00b9000-7fb2d00ba000 rw-p 00004000 08:12 400683                     /usr/lib/x86_64-linux-gnu/libdl-2.31.so
+7fb2d00ba000-7fb2d00d1000 r-xp 00000000 08:12 10620185                   /home/mariana/.jdks/corretto-1.8.0_302/lib/amd64/jli/libjli.so
+7fb2d00d1000-7fb2d02d0000 ---p 00017000 08:12 10620185                   /home/mariana/.jdks/corretto-1.8.0_302/lib/amd64/jli/libjli.so
+7fb2d02d0000-7fb2d02d1000 r--p 00016000 08:12 10620185                   /home/mariana/.jdks/corretto-1.8.0_302/lib/amd64/jli/libjli.so
+7fb2d02d1000-7fb2d02d2000 rw-p 00017000 08:12 10620185                   /home/mariana/.jdks/corretto-1.8.0_302/lib/amd64/jli/libjli.so
+7fb2d02d2000-7fb2d02d9000 r--p 00000000 08:12 401455                     /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7fb2d02d9000-7fb2d02ea000 r-xp 00007000 08:12 401455                     /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7fb2d02ea000-7fb2d02ef000 r--p 00018000 08:12 401455                     /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7fb2d02ef000-7fb2d02f0000 r--p 0001c000 08:12 401455                     /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7fb2d02f0000-7fb2d02f1000 rw-p 0001d000 08:12 401455                     /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+7fb2d02f1000-7fb2d02f5000 rw-p 00000000 00:00 0 
+7fb2d02f5000-7fb2d02f8000 r--p 00000000 08:12 401314                     /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7fb2d02f8000-7fb2d02ff000 r-xp 00003000 08:12 401314                     /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7fb2d02ff000-7fb2d0301000 r--p 0000a000 08:12 401314                     /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7fb2d0301000-7fb2d0302000 r--p 0000b000 08:12 401314                     /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7fb2d0302000-7fb2d0303000 rw-p 0000c000 08:12 401314                     /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+7fb2d0303000-7fb2d030c000 rw-p 00000000 00:00 0 
+7fb2d030c000-7fb2d030d000 r--p 00000000 08:12 400332                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7fb2d030d000-7fb2d0330000 r-xp 00001000 08:12 400332                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7fb2d0330000-7fb2d0338000 r--p 00024000 08:12 400332                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7fb2d0338000-7fb2d0339000 ---p 00000000 00:00 0 
+7fb2d0339000-7fb2d033a000 r--p 0002c000 08:12 400332                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7fb2d033a000-7fb2d033b000 rw-p 0002d000 08:12 400332                     /usr/lib/x86_64-linux-gnu/ld-2.31.so
+7fb2d033b000-7fb2d033c000 rw-p 00000000 00:00 0 
+7fff392d6000-7fff392f9000 rw-p 00000000 00:00 0                          [stack]
+7fff393e2000-7fff393e6000 r--p 00000000 00:00 0                          [vvar]
+7fff393e6000-7fff393e8000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -javaagent:/snap/intellij-idea-community/330/lib/idea_rt.jar=33271:/snap/intellij-idea-community/330/bin -Dfile.encoding=UTF-8 
+java_command: br.rosaluz.banking.system.Application
+java_class_path (initial): /home/mariana/.jdks/corretto-1.8.0_302/jre/lib/charsets.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/ext/cldrdata.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/ext/dnsns.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/ext/jaccess.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/ext/jfxrt.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/ext/localedata.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/ext/nashorn.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/ext/sunec.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/ext/sunjce_provider.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/ext/sunpkcs11.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/ext/zipfs.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/jce.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/jfr.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/jfxswt.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/jsse.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/management-agent.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/resources.jar:/home/mariana/.jdks/corretto-1.8.0_302/jre/lib/rt.jar:/home/mariana/Projects/banking-system/api/target/classes:/home/mariana/Projects/banking-system/core/target/classes:/home/mariana/.m2/repository/org/springframework/boot/spring-boot-starter-validation/2.5.6/spring-boot-starter-validation-2.5.6.jar:/home/mariana/.m2/repository/org/springframework/boot/spring-boot-starter/2.5.6/spring-boot-starter-2.5.6.jar:/home/mariana/.m2/repository/org/springframework/boot/spring-boot/2.5.6/spring-boot-2.5.6.jar:/home/mariana/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.5.6/spring-boot-autoconfigure-2.5.6.jar:/home/mariana/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.5.6/spring-boot-starter-logging-2.5.6.jar:/home/mariana/.m2/repository/ch/qos/logback/logback-classic/1.2.6/logback-classic-1.2.6.jar:/home/mariana/.m2/repository/ch/qos/logback/logback-core/1.2.6/logback-core-1
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+USERNAME=mariana
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xb32220], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xb32220], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x959c30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x959c30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x959c30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x959c30], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x959b00], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x95a120], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x95a120], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x95a120], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x95a120], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=20.04
+DISTRIB_CODENAME=focal
+DISTRIB_DESCRIPTION="Ubuntu 20.04.2 LTS"
+
+uname:Linux 5.11.0-38-generic #42~20.04.1-Ubuntu SMP Tue Sep 28 20:41:07 UTC 2021 x86_64
+libc:glibc 2.31 NPTL 2.31 
+rlimit: STACK 8192k, CORE 0k, NPROC 31137, NOFILE 1048576, AS infinity
+load average:2,35 1,88 1,55
+
+/proc/meminfo:
+MemTotal:        8030600 kB
+MemFree:          333768 kB
+MemAvailable:    2493992 kB
+Buffers:           46924 kB
+Cached:          2665996 kB
+SwapCached:          188 kB
+Active:          1704136 kB
+Inactive:        5592264 kB
+Active(anon):     241848 kB
+Inactive(anon):  4732380 kB
+Active(file):    1462288 kB
+Inactive(file):   859884 kB
+Unevictable:        7524 kB
+Mlocked:              32 kB
+SwapTotal:       2097148 kB
+SwapFree:        2080764 kB
+Dirty:             20136 kB
+Writeback:             4 kB
+AnonPages:       4590944 kB
+Mapped:          1173360 kB
+Shmem:            429860 kB
+KReclaimable:     124752 kB
+Slab:             236976 kB
+SReclaimable:     124752 kB
+SUnreclaim:       112224 kB
+KernelStack:       19024 kB
+PageTables:        55108 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6112448 kB
+Committed_AS:   14532180 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       57356 kB
+VmallocChunk:          0 kB
+Percpu:             3760 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      327068 kB
+DirectMap2M:     6893568 kB
+DirectMap1G:     1048576 kB
+
+container (cgroup) information:
+container_type: cgroupv1
+cpu_cpuset_cpus: 0-3
+cpu_memory_nodes: 0
+active_processor_count: 4
+cpu_quota: -1
+cpu_period: 100000
+cpu_shares: -1
+memory_limit_in_bytes: -1
+memory_and_swap_limit_in_bytes: -1
+memory_soft_limit_in_bytes: -1
+memory_usage_in_bytes: 6236254208
+memory_max_usage_in_bytes: 6434537472
+
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 142 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+stepping	: 9
+microcode	: 0xea
+cpu MHz		: 3500.004
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple pml ept_mode_based_exec
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds
+bogomips	: 5799.77
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+stepping	: 9
+microcode	: 0xea
+cpu MHz		: 3500.001
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple pml ept_mode_based_exec
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds
+bogomips	: 5799.77
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+stepping	: 9
+microcode	: 0xea
+cpu MHz		: 3500.002
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple pml ept_mode_based_exec
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds
+bogomips	: 5799.77
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz
+stepping	: 9
+microcode	: 0xea
+cpu MHz		: 3500.001
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple pml ept_mode_based_exec
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds
+bogomips	: 5799.77
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 8030600k(333768k free), swap 2097148k(2080764k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.302-b08) for linux-amd64 JRE (1.8.0_302-b08), built on Jul 15 2021 19:28:11 by "jenkins" with gcc 7.3.1 20180303 (Red Hat 7.3.1-5)
+
+time: Thu Nov 11 13:27:15 2021
+timezone: -03
+elapsed time: 3.995255 seconds (0d 0h 0m 3s)
+
