@@ -11,14 +11,19 @@ import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
+import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHitSupport;
 import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import static org.elasticsearch.index.query.QueryBuilders.termQuery;
 
@@ -30,12 +35,38 @@ public class UserRepositoryImpl implements UserRepository{
     private final ElasticsearchOperations elasticsearchOperations;
 
     @Override
-    public User save(final User user) {
+    public User saveOrUpdate(final User user) {
 
         final var userIndex = getUserIndex(user);
         final var userUpdated = elasticsearchOperations.save(user, IndexCoordinates.of(userIndex));
         userUpdated.setIndex(userIndex);
         return userUpdated;
+    }
+
+    @Override
+    public User searchByIds(final Set<String> ids) {
+        final NativeSearchQuery queryID = getNativeSearchQueryById(ids);
+        final var indexAlias = IndexCoordinates.of(IndexUtil.getIndexPerWeek());
+        final SearchHits<User> userHits = elasticsearchOperations.search(
+                queryID,
+                User.class,
+                indexAlias);
+
+        return userHits.getSearchHits().get(0).getContent();
+    }
+
+    @Override
+    public void  deleteUser(final Set<String> ids){
+
+        final var query = new BoolQueryBuilder();
+        filterById(query, ids.toArray(new String[0]));
+        var queryId = new NativeSearchQueryBuilder()
+                .withQuery(query)
+                .build();
+
+        final var indexAlias = IndexCoordinates.of(IndexUtil.getIndexPerWeek());
+       var userHits = elasticsearchOperations.delete(queryId,User.class,indexAlias);
+
     }
 
     @Override
@@ -64,6 +95,7 @@ public class UserRepositoryImpl implements UserRepository{
     private void buildQuery(UserSearchFilter userSearchFilter, BoolQueryBuilder query) {
         Optional.ofNullable(userSearchFilter.getUserId()).ifPresent(value -> filterById(query, "userId.keyword",value));
         Optional.ofNullable(userSearchFilter.getName()).ifPresent(value -> filterEqual(query,"name.keyword", value));
+        Optional.ofNullable(userSearchFilter.getCpf()).ifPresent(value -> filterEqual(query,"cpf.keyword", value));
 
     }
 
@@ -75,8 +107,20 @@ public class UserRepositoryImpl implements UserRepository{
         query.filter(QueryBuilders.idsQuery().addIds(value));
     }
 
+    private User getOrderWithIndex(SearchHit<User> userSearchHit) {
+        var user = userSearchHit.getContent();
+        user.setIndex(userSearchHit.getIndex());
+        return user;
+    }
 
     private String getUserIndex(User user) {
         return Objects.isNull(user.getIndex()) || user.getIndex().isEmpty() ? IndexUtil.getIndexPerWeek() : user.getIndex();
+    }
+    private NativeSearchQuery getNativeSearchQueryById(Set<String> ids) {
+        final var query = new BoolQueryBuilder();
+        filterById(query, ids.toArray(new String[0]));
+        return new NativeSearchQueryBuilder()
+                .withQuery(query)
+                .build();
     }
 }

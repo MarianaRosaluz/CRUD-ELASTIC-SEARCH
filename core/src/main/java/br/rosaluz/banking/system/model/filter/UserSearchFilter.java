@@ -14,5 +14,6 @@ public class UserSearchFilter {
 
     private String userId;
     private String name;
+    private String cpf;
 
 }

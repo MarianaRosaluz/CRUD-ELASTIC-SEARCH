@@ -1,9 +1,18 @@
 package br.rosaluz.banking.system.dto;
 
 import br.rosaluz.banking.system.model.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDTO {
 
+    private Long userid;
     private  String name;
     private String document;
     private String motherName;
@@ -11,28 +20,11 @@ public class UserDTO {
     private String  password;
 
 
-
-    public UserDTO(String name, String document, String motherName, String login, String password) {
-        this.name = name;
-        this.document = document;
-        this.motherName = motherName;
-        this.login = login;
-        this.password = password;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public User convertToUser(){
         return  User.builder()
+                .userid(userid)
                 .name(name)
-                .document(document)
+                .cpf(document)
                 .motherName(motherName)
                 .login(login)
                 .password(password)

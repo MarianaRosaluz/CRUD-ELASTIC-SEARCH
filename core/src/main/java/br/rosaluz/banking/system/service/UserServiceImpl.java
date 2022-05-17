@@ -7,7 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class UserServiceImpl implements  UserService {
@@ -21,10 +23,16 @@ public class UserServiceImpl implements  UserService {
 
 
     @Override
-    public User saveUser(User user)
+    public User saveOrUpdate(User user)
     {
-         return userRepository.save(user);
+         return userRepository.saveOrUpdate(user);
     }
+
+    @Override
+    public void deleteUser(Set<String> ids) {
+        userRepository.deleteUser(ids);
+    }
+
 
     @Override
     public Optional<User> findByLogin(String login){
@@ -37,6 +45,11 @@ public class UserServiceImpl implements  UserService {
     public Optional<User> findById(Long id){
         return null;
 //        return  userRepository.findById(id);
+    }
+
+    @Override
+    public User searchByIds(Set<String> ids) {
+        return userRepository.searchByIds(ids);
     }
 
     @Override
